@@ -1,0 +1,17 @@
+{% extends 'shared/site.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+{% block site_content %}
+    <section class="form-sign_up">
+        <form class="w-50 m-auto" method="post">
+            <fieldset>
+                <h2>Login</h2>
+                {{ form }}
+                {% csrf_token %}
+                <button type="submit" class="btn">Login</button>
+            </fieldset>
+        </form>
+    </section>
+{% endblock %}

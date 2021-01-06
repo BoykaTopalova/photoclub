@@ -1,0 +1,82 @@
+{% extends 'shared/site.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/user_profile_gallery.css' %}">
+{% endblock %}
+
+{% block site_title %}Photo Club{% endblock %}
+
+{% block site_content %}
+    <div class="profile">
+
+        {% if can_edit_profile %}
+            <h1>Hello, {{ profile_user.username }}!</h1>
+            <h5>This is your profile!</h5>
+        {% else %}
+            <h1>{{ profile_user.username }}</h1>
+        {% endif %}
+
+
+        {% if profile.profile_picture %}
+            <img class="profile_picture" src="{{ profile.profile_picture.url }}" alt="Generic placeholder image">
+        {% else %}
+            <img class="profile_picture"
+                 src="https://www.sunsetlearning.com/wp-content/uploads/2019/09/User-Icon-Grey-300x300.png"
+                 alt="Generic placeholder image">
+        {% endif %}
+
+        {% if can_edit_profile %}
+            <div class="w-50 m-auto">
+                <form action="{% url 'current user profile' %}" method="post" enctype="multipart/form-data">
+                    {{ form }}
+                    {% csrf_token %}
+                    <button class="btn">Upload</button>
+                </form>
+            </div>
+        {% endif %}
+
+    </div>
+    <hr>
+
+    {% if photos %}
+
+        {% if can_edit_profile %}
+
+            <h2 class='gallery_title'>Your gallery!</h2>
+        {% else %}
+            <h2 class='gallery_title'>{{ profile_user.username }} gallery!</h2>
+        {% endif %}
+
+        <div class="site">
+            <div class="cards-list layout-masonry">
+                {% for photo in photos %}
+                    <article class="card">
+                        <div class="inner">
+                            <section class="card-media">
+                                <img src="{{ photo.image.url }}" class="card-img-top" alt="{{ photo.title }}">
+                            </section>
+                            <header class="card-header">
+                                <h3>{{ photo.type }} {{ photo.title }}, Date: {{ photo.date }}</h3>
+                            </header>
+                            <section class="card-content">
+                                <p>{{ photo.descriptions }}</p>
+                                <p class="card-text"><strong>Owner: {{ photo.user.user.username }}</strong></p>
+                            </section>
+                            <footer class="card-footer">
+                                <div class="buttons">
+                                    <a href="{% url 'photo details or comment' photo.id %}" class="btn">See details</a>
+                                </div>
+                            </footer>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <div class="gallery_title">
+            <h2 style="margin:1.2em 0 3em 0;">You have no photo</h2>
+            <a href="{% url 'create photo' %}" class="btn user_profile_btn" style="margin:1.5em 0 3em 0;">Add Photo</a>
+        </div>
+    {% endif %}
+{% endblock %}

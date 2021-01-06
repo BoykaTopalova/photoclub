@@ -1,0 +1,24 @@
+{% extends 'shared/site.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block site_title %}Photo Club{% endblock %}
+
+{% block site_content %}
+    <section class="form-sign_up">
+        <form action="{% url 'signup user' %}" method="post">
+            <fieldset>
+                <legend>SignUp</legend>
+                {{ form }}
+                {% csrf_token %}
+                 <button class="btn">SignUp</button>
+            <span>Have an account?<a href="{% url 'signin user' %}" style="color:orange; padding-left: 0.8em;">Sign in here</a></span>
+            </fieldset>
+
+        </form>
+    </section>
+
+{% endblock %}

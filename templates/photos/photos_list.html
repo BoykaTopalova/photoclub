@@ -1,0 +1,34 @@
+{% extends 'shared/site.html' %}
+{% load static %}
+
+{% block styles %}
+   <link rel="stylesheet" href="{% static 'css/user_profile_gallery.css' %}">
+{% endblock %}
+
+{% block site_content %}
+    <h1 class='gallery_title'>Gallery</h1>
+    <div class="site">
+        <div class="cards-list layout-masonry">
+            {% for photo in photos %}
+                <article class="card">
+                    <div class="inner">
+                        <section class="card-media">
+                            <img src="{{ photo.image.url }}" alt="image of {{ photo.title }}">
+                        </section>
+                        <header class="card-header">
+                            <p class="photo-info">{{ photo.type }} {{ photo.title }}, Date: {{ photo.date }}</p>
+                        </header>
+                        <section class="card-content">
+                            <p class="photo-description">{{ photo.description }}</p>
+                        </section>
+                        <footer class="card-footer">
+                            <div class="photo-buttons">
+                                <a class="btn" href="{% url 'photo details or comment' photo.pk %}">See details</a>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

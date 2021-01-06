@@ -1,0 +1,74 @@
+{% extends 'shared/site.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/details_photos.css' %}">
+
+{% endblock %}
+
+{% block site_content %}
+    <div class="photo-root">
+        <div class="photo-image">
+            <img src="{{ photo.image.url }}" alt="image of {{ photo.title }}">
+        </div>
+        <div class="photo-info">
+
+            <ul class="info-like">
+                <li><span class="underline">Type:</span> {{ photo.type }}</li>
+                <li><span class="underline">Title:</span> {{ photo.title }}</li>
+                <li><span class="underline">Date:</span> {{ photo.date }}</li>
+                <li><span class="underline">Owner:</span>
+                    <a id="owner" href="{% url 'user profile' photo.user.user_id %}">{{ photo.user.user.username }}</a>
+                </li>
+
+                    <li><span class="underline">Description:</span> {{ photo.description }}</li>
+
+            </ul>
+            <div class="btns">
+                {% if can_edit %}
+                    <a href="{% url 'edit photo' photo.pk %}" class="btn green">Edit</a>
+                {% endif %}
+                {% if can_delete %}
+                    <a href="{% url 'delete photo' photo.pk %}" class="btn red">Delete</a>
+                {% endif %}
+            </div>
+            <div class="photo-buttons">
+                {% if can_like %}
+                    {% if has_like %}
+                        <a href="{% url 'like photo' photo.id %}"><i class="fas fa-thumbs-up fa-lg"></i></a>
+                    {% else %}
+                        <a href="{% url 'like photo' photo.id %}"><i class="far fa-thumbs-up fa-lg"></i></a>
+                    {% endif %}
+                {% endif %}
+                <p>Like: {{ photo.like_set.count }}</p>
+            </div>
+
+
+        </div>
+        <div class="d-block" style="background-color: #e3ebf1; padding:2%;">
+            {% if photo.comment_set.count > 0 %}
+                {% for comment in photo.comment_set.all %}
+                    <div class="box">
+                        <h5><em><span class="comment_user">{{ comment.user }}:  </span>{{ comment.text }}</em></h5>
+                        <hr>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="box">
+                    <h3>There are no comments for this photo.</h3>
+                </div>
+            {% endif %}
+            {% if can_comment %}
+                <div class="box">
+                    <form method="post" action="{% url 'photo details or comment' photo.pk %}">
+                        {{ form }}
+                        {% csrf_token %}
+                        <button class="btn" type="submit">
+                            Add comment
+                        </button>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

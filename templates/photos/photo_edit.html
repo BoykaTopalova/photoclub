@@ -1,0 +1,20 @@
+{% extends 'shared/site.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/photo_edit.css' %}">
+{% endblock %}
+
+{% block site_title %}Photo Club{% endblock %}
+
+{% block site_content %}
+    <h1 class="text-center">Edit photo</h1>
+    <div class="row">
+            <form method="post" action="{% url 'edit photo' photo.pk %}" class="edit-form" enctype="multipart/form-data">
+                {{ form }}
+                {% csrf_token %}
+                <button class="btn" type="submit">Edit</button>
+            </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,135 @@
+
+.photo-root {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 20px 20px 20px 150px;
+    margin: 10px auto;
+
+}
+
+.photo-image {
+    width: 400px;
+    overflow: hidden;
+    flex: 30%;
+}
+
+.photo-image img {
+    width: 700px;
+}
+
+.photo-info {
+    padding-left: 70px;
+    flex: 50%;
+}
+
+
+.info-like {
+
+    font-size: 1.4em;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.info-like li {
+    flex: 55%;
+    padding-bottom: 1rem;
+    color: #645c5c;
+}
+
+.info-like p {
+    font-size: 1.3em;
+    flex: 30%;
+}
+
+.underline {
+    font-weight: 600;
+}
+
+.fas, .far {
+    padding-top: 1rem;
+    color: #143380;
+}
+
+.d-block {
+    display: inline-block;
+    margin-left: 0;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    width: 90%;
+}
+
+.btn {
+    max-width: 100%;
+    display: block;
+    background: #05A2D3;
+    color: #FFF;
+    border: 2px solid #05A2D3;
+    border-radius: 0.3em;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.2em 0.5em;
+    font-size: 1.4rem;
+    margin: 0.8em auto;
+}
+
+.btn:hover {
+    border: 2px solid #05A2D3;
+    color: #05a2d3;
+    background: #fff;
+}
+
+input#id_text {
+    width: 900px;
+    height: 30px;
+    margin: 0 auto;
+}
+
+label {
+    display: none;
+}
+
+.form-control .rounded-2 {
+    display: none;
+}
+
+.green {
+    text-shadow: none;
+    border: 2px solid green;
+    display: inline-block;
+    background-color: green;
+}
+
+.btn.green:hover {
+    border: 2px solid green;
+    color: green;
+    background: #fff;
+}
+
+.red {
+    text-shadow: none;
+    border: 2px solid red;
+    display: inline-block;
+    background-color: red;
+}
+
+.btn.red:hover {
+    border: 2px solid red;
+    color: red;
+    background: #fff;
+}
+
+.comment_user, #owner {
+    font-weight: bold;
+    font-size: 1.4em;
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: #99e6f5;
+    text-shadow: 1px 1px 2px #000f8c;
+}
+

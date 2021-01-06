@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<nav class="menu">
+    <p>Photo Club</p>
+    <ul class="nav-options">
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'list photos' %}">Gallery</a></li>
+        <li><a href="{% url 'create photo' %}">Submit a photo</a></li>
+        {% if user.is_authenticated %}
+            <li class="auth">
+                <a href="{% url 'user profile' user.id %}">{{ user.username }}</a>
+            </li>
+            <li>
+                <a href="{% url 'signout user' %}">SingOut</a>
+            </li>
+        {% else %}
+            <li class="auth"><a href="{% url 'signin user' %}">Sign In</a></li>
+            <li><a href="{% url 'signup user' %}">Sign Up</a></li>
+        {% endif %}
+    </ul>
+</nav>

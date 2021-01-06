@@ -1,0 +1,36 @@
+h1{
+    padding-top: 4em;
+    padding-bottom: 1.5em;
+    color: #645c5c;
+    text-align: center;
+}
+.btn-two{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 11em;
+}
+.green {
+    text-shadow: none;
+    border: 2px solid #209EFA;
+    display: inline-block;
+    background-color: #209EFA;
+}
+
+.btn.green:hover {
+    border: 2px solid #209EFA;
+    color: #209EFA;
+    background: #fff;
+}
+
+.red {
+    text-shadow: none;
+    border: 2px solid red;
+    display: inline-block;
+    background-color: red;
+}
+
+.btn.red:hover {
+    border: 2px solid red;
+    color: red;
+    background: #fff;
+}

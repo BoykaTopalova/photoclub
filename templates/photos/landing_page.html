@@ -1,0 +1,21 @@
+{% extends 'shared/site.html' %}
+{% load static %}
+
+{% block styles %}
+
+{% endblock %}
+
+{% block site_title %}Photo Club{% endblock %}
+
+{% block site_content %}
+    <header>
+        <div class="landing_page">
+            <h1>PHOTO SHARING SITE</h1>
+            <p>FOR ANYONE WHO LOVES TO SHOOT!</p>
+
+            <a class="btn btn_lp " href="{% url 'signin user' %}">SIGN IN</a>
+            <a class="btn btn_lp " href="{% url 'signup user' %}">SIGN UP</a>
+
+        </div>
+    </header>
+{% endblock %}
