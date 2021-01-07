@@ -1,6 +1,6 @@
 from django import forms
 
-from photoclub.photos.models import Photo
+from ExamProject.photos.models import Photo
 
 
 class PhotoForm(forms.ModelForm):

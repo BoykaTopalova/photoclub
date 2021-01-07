@@ -1,6 +1,6 @@
 from django.urls import path
 
-from photoclub.photos.views import list_photos, like_photo, details_or_comment_photo, edit_photo, delete_photo, \
+from ExamProject.photos.views import list_photos, like_photo, details_or_comment_photo, edit_photo, delete_photo, \
    create_photo
 
 urlpatterns = [

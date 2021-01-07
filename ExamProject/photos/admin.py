@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from photoclub.photos.models import Photo, Like, Comment
+from ExamProject.photos.models import Photo, Like, Comment
 
 
 # Register your models here.

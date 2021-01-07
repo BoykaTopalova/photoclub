@@ -2,7 +2,7 @@ from django.db import models
 
 
 # Create your models here.
-from photoclub.accounts.models import UserProfile
+from ExamProject.accounts.models import UserProfile
 
 
 class Photo(models.Model):

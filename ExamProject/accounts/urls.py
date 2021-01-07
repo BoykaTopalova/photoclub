@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-from photoclub.accounts.views import SignUpView, SignOutView, SignInView, user_profile
+from ExamProject.accounts.views import SignUpView, SignOutView, SignInView, user_profile
 
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),

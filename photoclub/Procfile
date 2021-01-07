@@ -1,1 +1,0 @@
-web: gunicorn photoclub.wsgi --log-file -
