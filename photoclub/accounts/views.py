@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
-from ExamProject.accounts.forms import UserProfileForm
-from ExamProject.accounts.models import UserProfile
+from photoclub.accounts.forms import UserProfileForm
+from photoclub.accounts.models import UserProfile
 from django.views import generic as views
 
 

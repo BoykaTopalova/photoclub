@@ -1,6 +1,6 @@
 from django import forms
 
-from ExamProject.accounts.models import UserProfile
+from photoclub.accounts.models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):

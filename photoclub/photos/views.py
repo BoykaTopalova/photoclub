@@ -5,10 +5,10 @@ from django.shortcuts import render, redirect
 # Create your views here.
 # from django.views.generic import CreateView
 
-from ExamProject.core.clean_up import clean_up_files
-from ExamProject.photos.forms.comment_form import CommentForm
-from ExamProject.photos.forms.photo_form import PhotoForm
-from ExamProject.photos.models import Photo, Comment, Like
+from photoclub.core.clean_up import clean_up_files
+from photoclub.photos.forms.comment_form import CommentForm
+from photoclub.photos.forms.photo_form import PhotoForm
+from photoclub.photos.models import Photo, Comment, Like
 
 
 def list_photos(request):
